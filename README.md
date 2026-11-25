@@ -1,24 +1,34 @@
 # 001-json-validator
 
-تحقق JSON. أداة Python تعليمية تعمل على بيانات محلية ولا تتحكم بأجهزة حقيقية.
+أداة سطر أوامر للتحقق من مستندات JSON محليًا، وعرض نوع القيمة العليا وعدد عناصر المصفوفة أو مفاتيح الكائن. لا ترفع الملفات أو تعدّلها.
 
-## Python
+## المتطلبات
+
+Python 3.10 أو أحدث؛ لا تحتاج إلى مكتبات خارجية.
+
+## التشغيل
+
 ```bash
 python3 tool.py --help
-python3 tool.py --values 1 2 3
+python3 tool.py sample.json
+cat sample.json | python3 tool.py
+python3 tool.py sample.json --output report.json
 ```
 
+يعيد البرنامج رمز خروج `0` عند صحة JSON و`1` عند الخطأ. يتضمن التقرير سطر وعمود الخطأ النحوي عندما تتوفر هذه المعلومات.
+
 ## Termux
+
 ```bash
 pkg update && pkg install python
-python tool.py --values 1 2 3
+python tool.py sample.json
 ```
 
 ## iSH
+
 ```sh
 apk update && apk add python3
-python3 tool.py --values 1 2 3
+python3 tool.py sample.json
 ```
 
-## السلامة
-هذه أداة حساب/تحليل/محاكاة تعليمية. لا تستخدمها للتحكم بطائرات أو أجهزة أو أنظمة حقيقية، ولا للتشويش أو اعتراض الإشارات أو تجاوز الصلاحيات.
+كل المعالجة محلية على جهازك، ومدخلات الأداة لا تُرسل إلى أي خدمة خارجية.
